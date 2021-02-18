@@ -1,0 +1,49 @@
+{% extends 'sample.html' %}
+{% block title %}Order{% endblock %}
+
+
+
+{% block user_main_content %}
+
+<div class="order">
+    <div class="dashboard_header">
+        <h1>Orders</h1>
+    </div>
+    <div class="order_body">
+        <table class="table">
+            <tr>
+                <th></th>
+                <th>Status</th>
+                <th>Item</th>
+                <th>Total</th>
+                <th>Is Paid</th>
+                <th>Submitted At</th>
+                <th>Action</th>
+            </tr>
+            <tr>
+                <td><input type="checkbox" /></td>
+                <td><span class="status cancel">canceled</span></td>
+                <td>1 item</td>
+                <td>135.3 Tk</td>
+                <td><span class="fa fa-close"></span></td>
+                <td>07-09-2020 10:09 AM</td>
+                <td><a href="/user/order_view/{{111}}" class="action">View</a></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" /></td>
+                <td><span class="status success">success</span></td>
+                <td>1 item</td>
+                <td>135.3 Tk</td>
+                <td><span class="">Pending</span></td>
+                <td>07-09-2020 10:09 AM</td>
+                <td><a href="/user/order_view/{{112}}" class="action">View</a></td>
+            </tr>
+        </table>
+    </div>
+</div>   
+   
+<script>
+   var ele = document.querySelector(".account_sidebar_content > ul:nth-child(1) > li:nth-child(3) > a:nth-child(1)");
+   ele.classList.add('bar_active');
+</script>
+{% endblock user_main_content%}

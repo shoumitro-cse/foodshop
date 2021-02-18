@@ -1,0 +1,95 @@
+<!-- Add this for inheritance -->
+{% extends 'base.html' %}
+
+{% block title %}Food Gallery{% endblock %}
+
+{% block pagecontent %}
+<!--    <p><img src="/media/house.jpg" alt="" width="200px" height="200px"/></p>-->
+<div class="main-container">
+    <div class="gallery">
+     {% comment %}
+        <!--                {{request.method}}-->
+        <!--                {{request.get_full_path}}-->
+        <!--{{request.headers}}-->
+        <!--                {{request.GET}}-->
+
+        <!--  {{product_dict_list}}-->
+
+     {% endcomment %}
+
+        {% for dictItem in  products%}
+            <div class="gallery_card">
+                <div class="gallery_content">
+                    <div class="gallery_card_body">
+                        <a title="{{dictItem.product.name}}" href="/public/product/{{dictItem.product.id}}">
+                            <div class="card_main_content">
+                                <div class="img_holder">
+                                    <img src="/media/{{dictItem.image1}}" alt="{{dictItem.product.name}}" title="{{dictItem.product.name}}"/>
+                                </div>
+                                <div class="hr_line"></div>
+                                <div class="content_body">
+                                    <h1 class="g_title" title="{{dictItem.product.name}}">{{dictItem.product.name}}</h1>
+                                    <div class="g_price_content">
+                                        <span class="g_price"> Tk{{dictItem.product.price}} </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="add_cart_content">
+                            <button product-id="{{dictItem.product.id}}" type="button" class="add_cart_item add_cart_btn"> ADD TO CART </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    {% if products.has_other_pages %}
+      <div class="pagination_container">
+        <ul style="" class="pagination">
+
+          {% if products.has_previous %}
+            <li class="page-item">
+              <a class="page-link" href="?page={{ products.previous_page_number }}">Previous</a>
+            </li>
+          {% else %}
+            <li class="page-item disabled">
+              <span class="page-link">Previous</span>
+            </li>
+          {% endif %}
+
+          {% for page_num in products.paginator.page_range %}
+            {% if products.number == page_num %}
+              <li class="page-item active">
+                <span class="page-link">
+                  {{ page_num }}
+                  <span class="sr-only">(current)</span>
+                </span>
+              </li>
+            {% else %}
+              <li class="page-item">
+                <a class="page-link" href="?page={{ page_num }}">{{ page_num }}</a>
+              </li>
+            {% endif %}
+          {% endfor %}
+
+          {% if products.has_next %}
+            <li class="page-item">
+              <a class="page-link" href="?page={{ products.next_page_number }}">Next</a>
+            </li>
+          {% else %}
+            <li class="page-item disabled">
+              <span class="page-link">Next</span>
+            </li>
+          {% endif %}
+
+        </ul>
+      </div>
+    {% endif %}
+
+
+</div>
+<!--<script>
+    document.getElementsByTagName("body")[0].style.backgroundColor = "#fff";
+</script>-->
+{% endblock pagecontent%}

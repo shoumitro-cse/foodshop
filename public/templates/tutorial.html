@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tutorial</title>
+    <style>
+        .row1 {
+            color: blue;
+        }
+        .row2 {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+            <div style="color:#000;padding:3rem;">
+
+                <h1 style="color: green">custom template tags and filters</h1>
+                <!--custom tag-->
+                {% load define_action %}
+
+                {% jump_link %}
+
+
+
+                (minustwo tag : 123-2){%minustwo 123 as num%}
+                {{num}}
+                 <br/>
+                (minusone tag : 123-1) {%minusone 123 as num%}
+                {{num}}
+                <br/>
+                (my_tag tag ) :
+                {% my_tag 123 "abcd" "book title" warning="MESSAGE"|lower profile="user profile" as my %}
+                {{my}}
+                <br/>
+
+
+                <h1 style="color: green">Built-in template tags and filters</h1>
+
+                {% url 'admin:index' %}<br/>
+                {{ ""|default_if_none:"nothing" }}<br/>
+                {{ 21|divisibleby:"3" }}<br/>
+
+                {% autoescape off %}
+                {{ "<sws></sws>"|escape }}
+                {% endautoescape %}
+
+                {{ '{"Hello":"Mr. Jone"}'|json_script:"hello-data" }}
+
+
+                <h1 style="color: green">For built-in humanize </h1>
+                {% load humanize %}
+
+                (intcomma tag) : {{3556773473|intcomma}}<br/>
+                (apnumber tag) : {{2|apnumber}}<br/>
+                (intword tag) : {{1000000|intword}}<br/>
+                (naturalday tag) : {{"27 Sep 2020"|naturalday}}<br/>
+                (ordinal tag) : {{3|ordinal}}<br/>
+
+
+                <h1 style="color: green">For built-in Tags</h1>
+
+                <br/><br/>
+               Random Paragraph(lorem tag) :  {% lorem 1 p random %}<br/>
+               Random Word(lorem tag) :  {% lorem 1 w random %}<br/>
+
+               (now tag): {% now "jS F Y H:i" %}<br/>
+                url tag : {% url "product" 6000000 %}<br/>
+
+                (with tag):
+                {% with total=34 %}
+                    {{ total }} object{{ total|pluralize }}
+                {% endwith %}<br/>
+
+<!--                 this content don't process-->
+                {% verbatim %}
+                 verbatim tag :  {% don't process this %}
+                {% endverbatim %}
+
+
+
+                <h1 style="color: green">For built-in Filter</h1>
+                 Filter(title) : {{ "django"|title }}<br/>
+                 Date filter(date) : {{ "2020-11-12"|date:"Y-m-d" }}<br/>
+                 Filter(capfirst) : {{ "django"|capfirst }}<br/>
+                 Filter(floatformat) : {{ 123.5674332234|floatformat:3 }}<br/>
+                 Filter(linenumbers) : {{ "line"|linenumbers }}<br/>
+                 Filter(lower) : {{ "HELLO"|lower }}<br/>
+                 Filter(make_list) : {{ "HELLO"|make_list }}<br/>
+                 Filter(slugify) : {{ "HELLO"|slugify }}<br/>
+                 Filter(stringformat) : {{ "HELLO{}"|stringformat:12 }}<br/>
+                 Filter(truncatechars) : {{ "HELLO"|truncatechars:12 }}<br/>
+                 Filter(truncatechars_html) : {{ "HELLO"|truncatechars_html:12 }}<br/>
+
+                 Filter(urlencode) : {{ "http://127.0.0.1:8000/public/tutorial"|urlencode }}<br/>
+                 Filter(urlize) : {{ "http://127.0.0.1:8000/public/tutorial"|urlize }}<br/>
+                 Filter(urlizetrunc) : {{ "http://127.0.0.1:8000/public/tutorial"|urlizetrunc:12 }}<br/>
+
+                 Filter(wordcount) : {{ "Hello public tutorial"|wordcount }}<br/>
+                 Filter(wordwrap) : {{ "Hello public tutorial"|wordwrap:1 }}<br/>
+                 Filter(linebreaksbr) : {{ "Hello public tutorial"|linebreaksbr }}<br/>
+                 Filter(ljust) : {{ "Hello public tutorial"|ljust:100 }}<br/>
+                 Filter(safe) : {{ "Hello public tutorial"|safe }}<br/>
+
+
+                 Filter(first) : {{ "Return the first item in a list."|first }}<br/>
+                 Filter(last) : {{ "Return the last item in a list"|last }}<br/>
+
+                 Filter(join) : {{ "Hello public tutorial"|join:"+" }}<br/>
+
+                 Filter(length) : {{ "Hello public tutorial"|length }}<br/>
+<!--                """Return a boolean of whether the value's length is the argument."""-->
+                 Filter(length_is) : {{ "Hello public tutorial"|length_is:21 }}<br/>
+
+
+                 Filter(random) : {{ "Hello public tutorial"|random }}<br/>
+<!--                 Filter(unordered_list) : {{ "Hello public tutorial"|unordered_list }}<br/>-->
+                 Filter(add) : {{ "Hello public tutorial"|add:" home" }}<br/>
+                 Filter(get_digit) : {{ "345562"|get_digit:3 }}<br/>
+
+               <!--  For comment-->
+                {# single line comment #}
+
+                {# {% if foo %}bar{% else %} #}
+
+                 {% comment %}
+                    multi-line comment
+                 {% endcomment %}
+
+                {% comment "Optional note" %}
+                    <p>Commented out text with {{ create_date|date:"c" }}</p>
+                {% endcomment %}
+
+
+
+
+
+<!--                custom tag-->
+                {% load define_action %}
+                <h1 style="color: blue">For Custom Tag</h1>
+
+               <!-- for only simple tag-->
+                {%get_cart_list request  as cart_list %}
+                <h1>totalItem : {{cart_list.totalItem}}</h1>
+                <h1>totalCost : {{cart_list.totalCost}}</h1>
+
+               <!-- for only simple tag-->
+                {%get_user_email request  as email %}
+                <h1>Email addr : {{email}}</h1>
+
+
+               <!-- for only simple tag-->
+                {% get_addressee as addr %}
+                <h1>Hello {{addr}}</h1>
+
+                <!--not work-->
+                {{datetime.now}}
+
+                <!--this is custom variable tag-->
+                {% setvar "edit" as item %}
+               <br/>
+                {% if item %}
+                   {% define "Edit" as action %}
+                {% else %}
+                   {% define "Create" as action %}
+                {% endif %}
+                Would you like to {{action}} this item?
+               <br/>
+
+
+               <!--Some Custom Filter Tag-->
+               <br/>
+                {% setvar "HELLO WORLD" as varname %}
+               <br/>
+                {{ varname |lower }}
+               <br/>
+                {{ varname |initial_letter_filter }}
+                <br/>
+                {{ varname | linebreaks }}
+                {{ varname | urlize | linebreaks }}
+                {{ "07:18:02" | businesshours }}
+               <br/>
+               <!--Here cut World from Hello World-->
+                {{ varname | cut:"WORLD" }}
+               <br/>
+
+                <!--this is custom current time format tag-->
+               <br/>
+                 {% current_time "%Y-%m-%d %I:%M %p" as the_time %}
+                {{the_time}}
+               <br/>
+
+                <!--this is custom time format tag-->
+               <br/>
+                <p>This post was last updated at {% format_time blog_entry.date_updated "%Y-%m-%d %I:%M %p" %}.</p>
+               <br/>
+
+
+                <!--this is custom variable tag-->
+                {% setvar "a string" as new_template_var %}
+                {{new_template_var}}
+
+                <!--this is custom upper tag-->
+               <br/>
+                {% upper %}This will appear in uppercase, {{ new_template_var }}.{% endupper %}
+                <br/>
+
+                <!--this is custom comment tag. This content does not appear.-->
+                {% commenttag %}
+                    {% upper %}This will appear in uppercase, {{ new_template_var }}.{% endupper %}
+                {% endcommenttag %}
+               <br/>
+
+               {% for x in 'abcd' %}
+                 <!--build-in tag-->
+                <p class="{% cycle 'row1' 'row2' %}">x</p>
+               {% endfor %}
+
+                {% commenttag %}
+                 <!--for include a file=> build-in tag-->
+                  {% include 'pricing.html' %}
+                {% endcommenttag %}
+
+               {% with name="World" %}
+                    <html>
+                    <div>Hello {{name}}!</div>
+                    </html>
+                {% endwith %}
+<!--                for localdatetime-->
+<!--                {% load tz %}-->
+<!--                {% localtime on %}-->
+<!--                    {{ "2011-09-01T13:20:30+03:00" }}-->
+<!--                {% endlocaltime %}-->
+
+<!--                {% localtime off %}-->
+<!--                    {{ "2011-09-01T13:20:30+03:00" }}-->
+<!--                {% endlocaltime %}-->
+            </div>
+
+</body>
+</html>

@@ -1,0 +1,246 @@
+<!-- Add this for inheritance -->
+{% extends 'base.html' %}
+
+{% block title %}Food Gallery{% endblock %}
+
+{% block pagecontent %}
+<!--    <p><img src="/media/house.jpg" alt="" width="200px" height="200px"/></p>-->
+<div class="main-container">
+    <div class="gallery">
+        <!--                {{request.method}}-->
+        <!--                {{request.get_full_path}}-->
+        <!--{{request.headers}}-->
+        <!--                {{request.GET}}-->
+
+<!--        {{product_dict_list}}-->
+
+     {% comment %}
+     {% endcomment %}
+
+        {% for dictItem in  product_dict_list%}
+            <div class="gallery_card">
+                <div class="gallery_content">
+                    <div class="gallery_card_body">
+                        <a title="{{dictItem.name}}" href="/public/product/{{dictItem.id}}">
+                            <div class="card_main_content">
+                                <div class="img_holder">
+                                    <img src="/media/{{dictItem.image1}}" alt="{{dictItem.name}}" title="{{dictItem.name}}"/>
+                                </div>
+                                <div class="hr_line"></div>
+                                <div class="content_body">
+                                    <h1 class="g_title" title="{{dictItem.name}}">{{dictItem.name}}</h1>
+                                    <div class="g_price_content">
+                                        <span class="g_price"> Tk{{dictItem.price}} </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="add_cart_content">
+                            <button product-id="{{dictItem.id}}" type="button" class="add_cart_item add_cart_btn"> ADD TO CART </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+<!--        <div class="gallery_card">-->
+<!--            <div class="gallery_content">-->
+<!--                <div class="gallery_card_body">-->
+<!--                    <a href="/public/product/{{1000}}">-->
+<!--                        <div class="card_main_content">-->
+<!--                            <div class="img_holder">-->
+<!--                                <img src="/media/banana.jpg" alt="" title=""/>-->
+<!--                            </div>-->
+<!--                            <div class="hr_line"></div>-->
+<!--                            <div class="content_body">-->
+<!--                                <h1 class="g_title" title="">Banana (Sagor) [1 Pc.]</h1>-->
+<!--                                <div class="g_price_content">-->
+<!--                                    <span class="g_price"> tk550.00/EA </span>-->
+<!--                                </div>-->
+<!--                            </div>-->
+
+<!--                        </div>-->
+<!--                    </a>-->
+<!--                    <div class="add_cart_content">-->
+<!--                        <button class="add_cart_btn"> ADD TO CART </button>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="gallery_card">-->
+<!--            <div class="gallery_content">-->
+<!--                <div class="gallery_card_body">-->
+<!--                    <a href="/public/product/{{1000}}">-->
+<!--                        <div class="card_main_content">-->
+<!--                            <div class="img_holder">-->
+<!--                                <img src="/media/tomato.jpg" alt="" title=""/>-->
+<!--                            </div>-->
+<!--                            <div class="hr_line"></div>-->
+<!--                            <div class="content_body">-->
+<!--                                <h1 class="g_title" title="">Deshi Tomato - (Net Weight ± 50 gm).</h1>-->
+<!--                                <div class="g_price_content">-->
+<!--                                    <span class="g_price"> tk550.00/EA </span>-->
+<!--                                </div>-->
+<!--                            </div>-->
+
+<!--                        </div>-->
+<!--                    </a>-->
+<!--                    <div class="add_cart_content">-->
+<!--                        <button class="add_cart_btn"> ADD TO CART </button>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="gallery_card">-->
+<!--            <div class="gallery_content">-->
+<!--                <div class="gallery_card_body">-->
+<!--                    <a href="/public/product/{{1000}}">-->
+<!--                        <div class="card_main_content">-->
+<!--                            <div class="img_holder">-->
+<!--                                <img src="/media/apple.png" alt="" title=""/>-->
+<!--                            </div>-->
+<!--                            <div class="hr_line"></div>-->
+<!--                            <div class="content_body">-->
+<!--                                <h1 class="g_title" title="">Sweet Country Apple</h1>-->
+<!--                                <div class="g_price_content">-->
+<!--                                    <span class="g_price"> tk550.00/EA </span>-->
+<!--                                </div>-->
+<!--                            </div>-->
+
+<!--                        </div>-->
+<!--                    </a>-->
+<!--                    <div class="add_cart_content">-->
+<!--                        <button class="add_cart_btn"> ADD TO CART </button>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="gallery_card">-->
+<!--            <div class="gallery_content">-->
+<!--                <div class="gallery_card_body">-->
+<!--                    <a href="/public/product/{{1000}}">-->
+<!--                        <div class="card_main_content">-->
+<!--                            <div class="img_holder">-->
+<!--                                <img src="/media/orange.jpg" alt="" title=""/>-->
+<!--                            </div>-->
+<!--                            <div class="hr_line"></div>-->
+<!--                            <div class="content_body">-->
+<!--                                <h1 class="g_title" title="">Rupchanda Soyabean Oil Pet 5ltr.</h1>-->
+<!--                                <div class="g_price_content">-->
+<!--                                    <span class="g_price"> tk550.00/EA </span>-->
+<!--                                </div>-->
+<!--                            </div>-->
+
+<!--                        </div>-->
+<!--                    </a>-->
+<!--                    <div class="add_cart_content">-->
+<!--                        <button class="add_cart_btn"> ADD TO CART </button>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="gallery_card">-->
+<!--            <div class="gallery_content">-->
+<!--                <div class="gallery_card_body">-->
+<!--                    <a href="/public/product/{{1000}}">-->
+<!--                        <div class="card_main_content">-->
+<!--                            <div class="img_holder">-->
+<!--                                <img src="/media/orange.jpg" alt="" title=""/>-->
+<!--                            </div>-->
+<!--                            <div class="hr_line"></div>-->
+<!--                            <div class="content_body">-->
+<!--                                <h1 class="g_title" title="">Rupchanda Soyabean Oil Pet 5ltr.</h1>-->
+<!--                                <div class="g_price_content">-->
+<!--                                    <span class="g_price"> tk550.00/EA </span>-->
+<!--                                </div>-->
+<!--                            </div>-->
+
+<!--                        </div>-->
+<!--                    </a>-->
+<!--                    <div class="add_cart_content">-->
+<!--                        <button class="add_cart_btn"> ADD TO CART </button>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="gallery_card">-->
+<!--            <div class="gallery_content">-->
+<!--                <div class="gallery_card_body">-->
+<!--                    <a href="/public/product/{{1000}}">-->
+<!--                        <div class="card_main_content">-->
+<!--                            <div class="img_holder">-->
+<!--                                <img src="/media/orange.jpg" alt="" title=""/>-->
+<!--                            </div>-->
+<!--                            <div class="hr_line"></div>-->
+<!--                            <div class="content_body">-->
+<!--                                <h1 class="g_title" title="">Rupchanda Soyabean Oil Pet 5ltr.</h1>-->
+<!--                                <div class="g_price_content">-->
+<!--                                    <span class="g_price"> tk550.00/EA </span>-->
+<!--                                </div>-->
+<!--                            </div>-->
+
+<!--                        </div>-->
+<!--                    </a>-->
+<!--                    <div class="add_cart_content">-->
+<!--                        <button class="add_cart_btn"> ADD TO CART </button>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="gallery_card">-->
+<!--            <div class="gallery_content">-->
+<!--                <div class="gallery_card_body">-->
+<!--                    <a href="/public/product/{{1000}}">-->
+<!--                        <div class="card_main_content">-->
+<!--                            <div class="img_holder">-->
+<!--                                <img src="/media/orange.jpg" alt="" title=""/>-->
+<!--                            </div>-->
+<!--                            <div class="hr_line"></div>-->
+<!--                            <div class="content_body">-->
+<!--                                <h1 class="g_title" title="">Rupchanda Soyabean Oil Pet 5ltr.</h1>-->
+<!--                                <div class="g_price_content">-->
+<!--                                    <span class="g_price"> tk550.00/EA </span>-->
+<!--                                </div>-->
+<!--                            </div>-->
+
+<!--                        </div>-->
+<!--                    </a>-->
+<!--                    <div class="add_cart_content">-->
+<!--                        <button class="add_cart_btn"> ADD TO CART </button>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="gallery_card">-->
+<!--            <div class="gallery_content">-->
+<!--                <div class="gallery_card_body">-->
+<!--                    <a href="/public/product/{{1000}}">-->
+<!--                        <div class="card_main_content">-->
+<!--                            <div class="img_holder">-->
+<!--                                <img src="/media/orange.jpg" alt="" title=""/>-->
+<!--                            </div>-->
+<!--                            <div class="hr_line"></div>-->
+<!--                            <div class="content_body">-->
+<!--                                <h1 class="g_title" title="">Rupchanda Soyabean Oil Pet 5ltr.</h1>-->
+<!--                                <div class="g_price_content">-->
+<!--                                    <span class="g_price"> tk550.00/EA </span>-->
+<!--                                </div>-->
+<!--                            </div>-->
+
+<!--                        </div>-->
+<!--                    </a>-->
+<!--                    <div class="add_cart_content">-->
+<!--                        <button class="add_cart_btn"> ADD TO CART </button>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+
+
+
+    </div>
+</div>
+<!--<script>
+    document.getElementsByTagName("body")[0].style.backgroundColor = "#fff";
+</script>-->
+{% endblock pagecontent%}

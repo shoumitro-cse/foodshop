@@ -1,0 +1,239 @@
+<!-- Add this for inheritance -->
+{% extends 'base.html' %}
+
+{% block title %}Cart{% endblock %}
+
+{% block pagecontent %}
+<div class="main-container">
+    <div class="shopping_cart">
+
+        <div class="cart_main_content">
+            <div class="cart_body_content">
+
+                <div class="cart_header">
+                    <h1>Shopping cart (3 Items)</h1>
+                    <p><a href="{% url 'gallery' %}">More Shopping</a></p>
+                </div>
+
+                <!--for cart item-->
+                <div class="shopping_cart_item">
+                    <div class="cart_item_front">
+                        <div class="cart_img_content">
+                            <img src="/media/tomato.jpg" alt="" />
+                        </div>
+                        <div class="cart_body_summary">
+                            <div><a href="/public/product/1000"><strong>Name : </strong> <span>Tomato</span></a> </div>
+                            <div><strong>Other :</strong>  Default </div>
+                            <div style="color: gray;"><strong>Tk895.00</strong></div>
+                        </div>
+                    </div>
+                    <div class="quentity_section">
+                        <div><span style="cursor: pointer" class="fa fa-close"></span></div>
+                        <div>Tk0.00</div>
+                        <div><input type="number" min="1" max="50" name="quentity_number" /></div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+        <div class="checkout_content">
+            <div class="checkout_body_content">
+
+                <div class="amount_account">
+                    <ul class="list-amount">
+                        <li>
+                            <span class="title">Sub Total Cost (Qnt 3 Items)</span>
+                            <span class="sub-title">Tk1,370.00</span>
+                        </li>
+                        <li>
+                            <span class="title">Discount (-)</span>
+                            <span class="sub-title text-green">Tk0.00</span>
+                        </li>
+                        <li>
+                            <span class="title">Delivery Charge (+)</span>
+                            <span class="sub-title">Tk0.00</span>
+                        </li>
+                        <li>
+                            <span class="title">VAT 0% (+)</span>
+                            <span class="sub-title text-red">Tk0.00</span>
+                        </li>
+                    </ul>
+                    <div class="total-container">
+                        <ul class="list-amount">
+                            <li>
+                                <span class="title">Total</span>
+                                <span class="sub-title">Tk1,370.00</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="hr_line"></div>
+                <div class="p-type">
+                    <h4 class="p_title">Choose Payment Method</h4>
+                    <ul class="payment-list">
+                        <li class="">
+                            <label for="cash_on" class="link">
+                                <span>
+                                    <img src="/media/icon/cash _green.svg" alt="" />
+                                </span>
+                                <span class="title">Cash on Delivery</span>
+                                <!--<input id="cash_on" value="1" type="radio" name="p_method" />-->
+                                <input id="cash_on" value="1" style="width: 1px;opacity: 0;" form="deliver_form" type="radio" name="p_method" />
+                            </label>
+                        </li>
+                        <li class="">
+                            <label for="online_pay" class="link">
+                                <span>
+                                    <img src="/media/icon/online_payment.svg" alt="" />
+                                </span>
+                                <span class="title">Online Payment</span>
+                                <input id="online_pay" value="2" style="width: 1px;opacity: 0;" form="deliver_form" type="radio" name="p_method" />
+                            </label>
+                        </li>
+                        <li class="">
+                            <label for="cash_on_pickup" class="link">
+                                <span>
+                                    <img src="/media/icon/cash _green.svg" alt="" />
+                                </span>
+                                <span class="title">Cash on PickUp</span>
+                                <input id="cash_on_pickup" value="3" style="width: 1px;opacity: 0;" form="deliver_form" type="radio" name="p_method" />
+                            </label>
+                        </li>
+                        <li class="">
+                            <label for="mobile_pay" class="link">
+                                <span>
+                                    <img src="/media/icon/online_payment.svg" alt="" />
+                                </span>
+                                <span class="title">Mobile Payment</span>
+                                <input id="mobile_pay" value="4" style="width: 1px;opacity: 0;" form="deliver_form" type="radio" name="p_method" />
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+                <div class="hr_line"></div>
+                <div class="d-type">
+                    <h4 class="d_title">Choose Delivery Type</h4>
+                    <ul class="delivery_type">
+                        <li class="d_active" tab-id='address_info' >
+                            <img src="/media/icon/check_mark.svg" alt=""  />
+                            <span>Home</span>
+                        </li>
+                        <li  tab-id='pickup_info'>
+                            <img src="/media/icon/check_mark.svg" alt=""  />
+                            <span>PickUp</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="hr_line"></div>
+                <div class="delivery_addr_panel">
+                    <div id="address_info" class="address_info d-none show">
+                        <h4 class="a_title">Choose Delivery Address</h4>
+                        <div class="address">
+                            <div class="addr_text">Dhaka, Bangladesh</div>
+                            <div onclick="document.getElementById('addr_model').style.display = 'block'" class="addr_change">Change Address</div>
+                        </div>
+                    </div>
+                    <div id="pickup_info" class="address_info d-none">
+                        <h4 class="a_title">Choose PickUp Address</h4>
+                        <div class="pickup_address">
+                            <input form="deliver_form" type="text" name="pickup_address" list="pickup_addresses" placeholder="Pickup Address ...." />
+                            <datalist id="pickup_addresses">
+                                <option value="Jessore">
+                                <option value="Khulna">
+                                <option value="Rangpur">
+                                <option value="Sylhet">
+                                <option value="Borisal">
+                            </datalist>
+                        </div>
+                    </div>
+                </div>
+                <form id="deliver_form" action="" method="get">
+                    <div class="hr_line"></div>
+                    <div class="delivery_info">
+                        <h4 class="a_title">Choose Delivery Date-Time</h4>
+                        <div class="delivery">
+                            <div class="d_item">
+                                <div>Date</div>
+                                <div><input type="date" name="delivery_date" /></div>
+                            </div>
+                            <div class="d_item">
+                                <div>Time</div>
+                                <div><input type="time" name="delivery_time" /></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hr_line"></div>
+                    <div class="short_note">
+                        <textarea name="short_note" placeholder="Enter your note" ></textarea>
+                    </div>
+                    <div class="hr_line"></div>
+                    <div class="checkout"> 
+                        <button type="submit" class="checkout_btn">Checkout</button>
+                    </div>
+                </form>
+
+                <!--for address model-->
+                <!--<div style="display: block;" id="addr_model" class="model">-->
+                <div id="addr_model" class="model">
+                    <div class="model_content addr_model_content">
+                        <span class="sp_addr_title">Your Shipping Address</span>
+                        <span style=" font-size: 130%;color: #000;" onclick="document.getElementById('addr_model').style.display = 'none';" class="close_model fa fa-close"></span>
+                        <form  action="" method="get" class="addr_info">
+                            <div class="addr_title">
+                                <label class="form_label">Address Title</label>
+                                <input class="form_control" type="text" name="addr_title" placeholder="Home Address, Office Address..."/>
+                            </div>
+                            <div class="row_gp">
+                                <div class="col_gp">
+                                    <label class="form_label">Contact Person Name</label>
+                                    <input class="form_control" type="text" name="contact_person" placeholder="Enter Name"/>
+                                </div>
+                                <div class="col_gp">
+                                    <label class="form_label">Contact Person Phone Number</label>
+                                    <input class="form_control" type="text" name="contact_person_phone" placeholder="Enter Phone Number"/>
+                                </div>
+                            </div>
+                            <div class="row_gp">
+                                <div class="col_gp">
+                                    <label class="form_label">Address Line 1</label>
+                                    <input class="form_control" type="text" name="addr_1" placeholder="Enter Address Line 1"/>
+                                </div>
+                                <div class="col_gp">
+                                    <label class="form_label">Address Line 2</label>
+                                    <input class="form_control" type="text" name="addr_2" placeholder="Enter Address Line 2"/>
+                                </div>
+                            </div>
+                            <div class="row_gp">
+                                <div class="col_gp">
+                                    <label class="form_label">Area</label>
+                                    <input class="form_control" type="text" name="area" placeholder="Enter Area"/>
+                                </div>
+                                <div class="col_gp">
+                                    <label class="form_label">ZIP/Post Code</label>
+                                    <input class="form_control" type="text" name="zip_code" placeholder="Enter ZIP/Post Code"/>
+                                </div>
+                            </div>
+                            <br/>
+                            <!--<div class="hr_line"></div>-->
+                            <div class="row_gp">
+                                <div class="col_gp">
+                                    <input  onclick="document.getElementById('addr_model').style.display = 'none';" class="form_control addr_btn" type="button" value="Cancel"/>
+                                </div>
+                                <div class="col_gp">
+                                    <input class="form_control addr_btn addr_submit" type="submit" value="Create"/>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock pagecontent%}

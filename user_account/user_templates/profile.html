@@ -1,0 +1,57 @@
+{% extends 'sample.html' %}
+{% block title %}Profile{% endblock %}
+
+
+
+{% block user_main_content %}
+
+<div class="user_profile">
+    <div class="dashboard_header">
+        <h1>User Profile</h1>
+    </div>
+    <div class="profile_body">
+        <div>
+            <div class="change_user_info">
+                <button>Change</button> 
+            </div>
+            <form action="" method="get" >
+
+                <div class="input_gp">
+                    <label><span class="fas fa-user"></span> FullName</label>
+                    <!--<input disabled type="text" name="fullname" value="Shoumitro Ray" placeholder="Fullname...."/>-->
+                    <input type="text" name="fullname" value="Shoumitro Ray" placeholder="Fullname...."/>
+                </div>
+                <div class="hr_line"></div>
+                <div class="input_gp">
+                    <label><span class="fas fa-envelope"></span> Email Address</label>
+                    <input type="email" name="email" value="shoumitro26@gmail.com" placeholder="Email...."/>
+                </div>
+                <div class="hr_line"></div>
+                <div class="input_gp">
+                    <label><span class="fas fa-user-plus"></span> Gender</label>
+                    <div class="gender_gp">
+                        <input checked type="radio" name="gender"/> <span>Male</span>
+                        <input type="radio" name="gender" /> <span>Female</span><br/>
+                    </div>
+                </div>
+                <div class="hr_line"></div>
+                <div class="input_gp">
+                    <label><span class="fas fa-address-card"></span> Address</label>
+                    <input type="text" name="addr" value="Jessore, Khulna." placeholder="Address...."/>
+                </div>
+                <div class="hr_line"></div>
+                <div class="input_gp mg_0">
+                    <label><span class="fas fa-map-signs"></span> Post/Zip Code</label>
+                    <input type="text" name="zip" value="7440" placeholder="Post/Zip Code...."/>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    var ele = document.querySelector(".account_sidebar_content > ul:nth-child(1) > li:nth-child(2) > a:nth-child(1)");
+    ele.classList.add('bar_active');
+</script>
+{% endblock user_main_content%}

@@ -1,0 +1,19 @@
+
+<h1>
+    Hello from public_templates/t2.html
+</h1>
+<p>
+       Jump directly to <a href="{{ link2 }}">{{ title2 }}</a>.
+
+</p>
+
+<p>
+    {% autoescape off %}
+       Jump directly to <a href="{{ link2 }}">{{ title2 }}</a>.
+   {% endautoescape %}
+    <br/>
+    {% autoescape on %}
+       Jump directly to <a href="{{ link2 }}">{{ title2 }}</a>.
+   {% endautoescape %}
+
+</p>

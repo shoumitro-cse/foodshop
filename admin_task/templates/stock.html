@@ -1,0 +1,112 @@
+{% extends "admin/base_site.html" %}
+{% load i18n static %}
+
+
+{% block title %}
+   Products
+{% endblock %}
+
+{% block extrastyle %}
+  {{ block.super }}
+  <link rel="stylesheet" type="text/css" href="{% static "css/admin_style.css" %}">
+{% endblock %}
+
+{% block coltype %}
+   colMS
+{% endblock %}
+
+{% block bodyclass %}
+   {{ block.super }}
+    admin_task
+{% endblock %}
+
+{% block breadcrumbs %}
+    <div class="breadcrumbs">
+        <a href="{% url 'admin:index' %}">{% trans 'Home' %}</a> &rsaquo; 
+        <a href="{% url 'ad_products' %}">{% trans 'AdminTaskProducts' %}</a> &rsaquo; 
+        <a href="{% url 'stock' %}">{% trans 'Stock' %}</a> 
+    </div>
+{% endblock %}
+
+
+
+<!--for =>  Welcome, shoumitro . View FoodShop / Change password / Log out--> 
+{% block usertools %}
+
+        <div id="user-tools">
+            <!--for => Welcome, shoumitro-->
+            {% block welcome-msg %}
+                {% trans 'Welcome,' %} <strong>  {% firstof user.get_short_name user.get_username %} </strong>.
+            {% endblock %}
+
+            {% block userlinks %}
+                 <a href="/">{% trans 'View FoodShop' %}</a> /
+                {% if user.has_usable_password %}
+                    <a href="{% url 'admin:password_change' %}">{% trans 'Change password' %}</a> /
+                {% endif %}
+
+                <a href="{% url 'admin:logout' %}">{% trans 'Log out' %}</a>
+            {% endblock %}
+        </div>
+{% endblock %}
+
+
+
+<!--for main content-->
+{% block content %}
+    <div class="stock">
+       <table>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Product Name</th>
+            <th>Stock</th>
+            <th>Current Stock</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+            
+          <!--for => list and dictionary-->
+          {% for  dictionary in product_dict_list %}
+              <tr>
+                 <td> {{ dictionary.id }} </td>
+                 <td> {{ dictionary.name }} </td>
+                 <td> {{ dictionary.stock }} </td>
+                 <td> {{ dictionary.currentStock }} </td>
+                 <td> 
+                     <a class='rec_edit' href='/admin/public/product/{{dictionary.id}}/change/' ><b><i>edit</i></b></a>
+                     \ <a class='rec_delete' href='/admin/public/product/{{dictionary.id}}/delete/' ><b><i>delete</i></b></a> 
+                     \ <a class='rec_history' href='/admin/public/product/{{dictionary.id}}/history/' ><b><i>history</i></b></a>
+                 </td>
+              </tr>
+          {% endfor %}
+          
+    
+          <!--list and dictionary example 2nd way-->
+<!--          {% for  dictionary in product_dict_list %}
+              <tr>
+               {% for k, v in dictionary.items %}
+                 <td> {{ v }} </td>
+               {% endfor %}
+                 <td> edit/delete </td>
+              </tr>
+          {% endfor %}-->
+
+
+<!--for list and tuple example-->
+<!--          {% for  tupl in product_list %}
+              <tr>
+               {% for x in tupl %}
+                 <td> {{ x }} </td>
+               {% endfor %}
+                 <td> edit/delete </td>
+              </tr>
+          {% endfor %}-->
+          
+          
+        </tbody>
+      </table>
+    </div>
+{% endblock %}
+

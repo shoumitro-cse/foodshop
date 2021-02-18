@@ -1,0 +1,53 @@
+<!--This template is a custom template for product-->
+
+<!--extends from admin => admin/change_list.html template-->
+{% extends "admin/change_list.html" %}
+
+{% block content_title %}
+    <h1> Product List </h1>
+{% endblock %}
+
+{% block result_list %}
+
+<div class=”results”>
+    <table>
+
+    <thead>
+      <tr>
+        <th>
+          <div class=”text”>
+            <a href=”#”>ID</a>
+          </div>
+        </th>
+        <th>
+          <div class=”text”>
+            <a href=”#”>name</a>
+          </div>
+        </th>
+        <th>
+          <div class=”text”>
+            <a href=”#”>description</a>
+          </div>
+        </th>
+        <th>
+          <div class=”text”>
+            <a href=”#”>image_url</a>
+          </div>
+        </th>
+      </tr>
+    </thead>
+        <tbody>
+      {% for row in product_list %}
+      <tr>
+        <td> {{ row.id }} </td>
+        <td> {{ row.name }} </td>
+        <td> {{ row.description }} </td>
+        <td> {{ row.image_url }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+
+  </table>
+</div>
+{% endblock %}
+

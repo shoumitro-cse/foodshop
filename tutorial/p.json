@@ -1,0 +1,185 @@
+[
+    {
+        "category_name": "Baby Care",
+        "product_category": [
+            { "product_category_name": "Baby Food", "product_list": [] },
+            { "product_category_name": "Bath & Skin Care", "product_list": [] },
+            { "product_category_name": "Diapers & wipes", "product_list": [] }
+        ]
+    },
+    {
+        "category_name": "Bakery & Snacks",
+        "product_category": [
+            { "product_category_name": "Breads", "product_list": [] },
+            { "product_category_name": "Cakes", "product_list": [] },
+            { "product_category_name": "Cookies", "product_list": [] }
+        ]
+    },
+    {
+        "category_name": "Beauty & Hygiene",
+        "product_category": [
+            { "product_category_name": "Antiseptics", "product_list": [] },
+            { "product_category_name": "Bath", "product_list": [] },
+            { "product_category_name": "Deodorants", "product_list": [] },
+            { "product_category_name": "Face & Body Care", "product_list": [] },
+            { "product_category_name": "Family Planning", "product_list": [] },
+            { "product_category_name": "Feminine Cares", "product_list": [] },
+            { "product_category_name": "First Aid", "product_list": [] },
+            { "product_category_name": "Hair Care", "product_list": [] },
+            { "product_category_name": "Hand Wash & Sanitizer", "product_list": [] },
+            { "product_category_name": "Oral Care", "product_list": [] },
+            { "product_category_name": "Shaving care", "product_list": [] },
+            { "product_category_name": "Skin Care", "product_list": [] }
+        ]
+    },
+    {
+        "category_name": "Beverages",
+        "product_category": [
+            { "product_category_name": "Health Drink, Supplement", "product_list": [] },
+            { "product_category_name": "Juice", "product_list": [] },
+            { "product_category_name": "Soft Drinks", "product_list": [] },
+            { "product_category_name": "Tea and Coffee", "product_list": [] },
+            { "product_category_name": "Water", "product_list": [] }
+        ]
+    },
+    {
+        "category_name": "Dairy",
+        "product_category": [
+            { "product_category_name": "Butter", "product_list": [] },
+            { "product_category_name": "Cheese", "product_list": [] },
+            { "product_category_name": "Liquid & UHT Milk", "product_list": [] },
+            { "product_category_name": "Milk Powder", "product_list": [] },
+            { "product_category_name": "Yogurt", "product_list": [] }
+        ]
+    },
+    {
+        "category_name": "Fish",
+        "product_category": [
+            { "product_category_name": "Fresh Fish", "product_list": [] },
+            { "product_category_name": "Dry Fish", "product_list": [] }
+        ]
+    },
+    {
+        "category_name": "Fresh Produce",
+        "product_category": [
+            {
+                "product_category_name": "Fruits",
+                "product_list": [
+                    {
+                        "id": 6000000,
+                        "name": "Banana (Sagor) [1 Pc.]",
+                        "keyword": "banana-sagor-1-pc",
+                        "weight": "1 kg",
+                        "brand": "Brand",
+                        "stock": 13,
+                        "currentStock": 13,
+                        "price": 20.0,
+                        "unitPrice": 20.0,
+                        "taxed": 0.0,
+                        "desc1": "Loaded with fiber, both soluble and insoluble.",
+                        "desc2": "Banana is a heavyweight when it comes to nutrition.",
+                        "desc3": "It also contains fiber, potassium, folate, and antioxidants.",
+                        "desc4": "It can also be a good way to get magnesium and vitamins C and B6.",
+                        "image1": "product/banana.jpg",
+                        "image2": "product/banana_ayraQyi.jpg",
+                        "image3": "product/banana_2QL9ZNV.jpg",
+                        "image4": "product/banana_5xNRJhP.jpg"
+                    },
+                    {
+                        "id": 6000001,
+                        "name": "Deshi Tomato",
+                        "keyword": "deshi-tomato-12-kg",
+                        "weight": "12 kg",
+                        "brand": "Brand",
+                        "stock": 16,
+                        "currentStock": 16,
+                        "price": 440.0,
+                        "unitPrice": 440.0,
+                        "taxed": 0.0,
+                        "desc1": "Tomatoes are the major dietary source of the antioxidant lycopene, which has been linked to many health benefits, including reduced risk of heart disease and cancer.",
+                        "desc2": "They are also a great source of vitamin C, potassium, folate, and vitamin K.",
+                        "desc3": "The water content of tomatoes is around 95%. The other 5% consists mainly of carbohydrates and fiber.",
+                        "desc4": "Fresh tomatoes are low in carbs.",
+                        "image1": "product/tomato.jpg",
+                        "image2": "product/tomato_ijK1Vsz.jpg",
+                        "image3": "product/tomato_3qM4bKr.jpg",
+                        "image4": "product/tomato_smgyw5O.jpg"
+                    },
+                    {
+                        "id": 6000002,
+                        "name": "Kenu Orange Australian",
+                        "keyword": "kenu-orange-australian",
+                        "weight": "12 kg",
+                        "brand": "Brand",
+                        "stock": 13,
+                        "currentStock": 13,
+                        "price": 278.0,
+                        "unitPrice": 278.0,
+                        "taxed": 0.0,
+                        "desc1": "The 'Kinnow' is a high yield mandarin hybrid cultivated extensively in the wider Punjab region of India and Pakistan.",
+                        "desc2": "It is a hybrid of two citrus cultivars 'King' (Citrus nobilis) \u00d7 'Willow Leaf' (Citrus \u00d7 deliciosa) first developed by Howard B. Frost, at the University of California Citrus Experiment Station.",
+                        "desc3": "ab",
+                        "desc4": "abc",
+                        "image1": "product/orange.jpg",
+                        "image2": "product/orange_sLUMv2B.jpg",
+                        "image3": "product/orange_fj755op.jpg",
+                        "image4": "product/orange_xibz6gk.jpg"
+                    }
+                ]
+            },
+            { "product_category_name": "Vegetables", "product_list": [] }
+        ]
+    },
+    {
+        "category_name": "Grocery",
+        "product_category": [
+            { "product_category_name": "Atta, Flour & Suji", "product_list": [] },
+            { "product_category_name": "Canned Food", "product_list": [] },
+            { "product_category_name": "Candy & Chocolates", "product_list": [] },
+            { "product_category_name": "Cereals", "product_list": [] },
+            { "product_category_name": "Chips", "product_list": [] },
+            { "product_category_name": "Cooking Oil Ghee", "product_list": [] },
+            { "product_category_name": "Dips & Spreads", "product_list": [] },
+            { "product_category_name": "Egg", "product_list": [] },
+            { "product_category_name": "Frozen food", "product_list": [] },
+            { "product_category_name": "Noodles", "product_list": [] },
+            { "product_category_name": "Oats", "product_list": [] },
+            { "product_category_name": "Pasta", "product_list": [] },
+            { "product_category_name": "Popcorns and Nuts", "product_list": [] },
+            { "product_category_name": "Puffed Rice", "product_list": [] },
+            { "product_category_name": "Pulse", "product_list": [] },
+            { "product_category_name": "Rice", "product_list": [] },
+            { "product_category_name": "Sauces", "product_list": [] },
+            { "product_category_name": "Salt,Sugar & Honey", "product_list": [] },
+            { "product_category_name": "Soup", "product_list": [] },
+            { "product_category_name": "Spice and Condiments", "product_list": [] }
+        ]
+    },
+    {
+        "category_name": "Household & Cleaning",
+        "product_category": [
+            { "product_category_name": "Air Fresheners", "product_list": [] },
+            { "product_category_name": "Cleaning Supplies", "product_list": [] },
+            { "product_category_name": "Detergents & Dishwashes", "product_list": [] },
+            { "product_category_name": "Food Stoarge", "product_list": [] },
+            { "product_category_name": "Kitchen Accessories", "product_list": [] },
+            { "product_category_name": "Pest Control", "product_list": [] },
+            { "product_category_name": "Tissue & Napkin", "product_list": [] }
+        ]
+    },
+    {
+        "category_name": "Meat",
+        "product_category": [
+            { "product_category_name": "Beef & Mutton", "product_list": [] },
+            { "product_category_name": "Chicken", "product_list": [] }
+        ]
+    },
+    {
+        "category_name": "Pet Care",
+        "product_category": [
+            { "product_category_name": "Cat Food", "product_list": [] },
+            { "product_category_name": "Dog Food", "product_list": [] }
+        ]
+    }
+]
+

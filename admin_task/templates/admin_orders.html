@@ -1,0 +1,70 @@
+{% extends "admin/base_site.html" %}
+{% load i18n static %}
+
+
+{% block title %}
+   Orders
+{% endblock %}
+
+{% block extrastyle %}
+  {{ block.super }}
+  <link rel="stylesheet" type="text/css" href="{% static "css/admin_style.css" %}">
+{% endblock %}
+
+{% block coltype %}
+   colMS
+{% endblock %}
+
+{% block bodyclass %}
+   {{ block.super }}
+    admin_task
+{% endblock %}
+
+{% block breadcrumbs %}
+    <div class="breadcrumbs">
+        <a href="{% url 'admin:index' %}">{% trans 'Home' %}</a> &rsaquo; 
+        <a href="{% url 'ad_orders' %}">{% trans 'AdminTaskOrders' %}</a>
+    </div>
+{% endblock %}
+
+
+
+<!--for =>  Welcome, shoumitro . View FoodShop / Change password / Log out--> 
+{% block usertools %}
+
+        <div id="user-tools">
+            <!--for => Welcome, shoumitro-->
+            {% block welcome-msg %}
+                {% trans 'Welcome,' %} <strong>  {% firstof user.get_short_name user.get_username %} </strong>.
+            {% endblock %}
+
+            {% block userlinks %}
+                 <a href="/">{% trans 'View FoodShop' %}</a> /
+                {% if user.has_usable_password %}
+                    <a href="{% url 'admin:password_change' %}">{% trans 'Change password' %}</a> /
+                {% endif %}
+
+                <a href="{% url 'admin:logout' %}">{% trans 'Log out' %}</a>
+            {% endblock %}
+        </div>
+{% endblock %}
+
+
+<!--for main content-->
+{% block content %}
+    <div class="btn_container">
+         <ul>
+            <li><a href="/admin/"><span class="fa fa-dashboard"></span>&nbsp;Dashboard</a></li>
+            <li><a href="/admin/public/orders/"><span class="fa fa-edit"></span>&nbsp;Pending Orders</a></li>
+            <li><a href="/admin/public/orders/"><span class="fa fa-edit"></span>&nbsp;Orders</a></li>
+            <li><a href="/admin/public/deliveryaddr/"><span class="fa fa-edit"></span>&nbsp;Delivery Address</a></li>
+            <li><a href="/admin/public/cart/"><span class="fa fa-edit"></span>&nbsp;Cart</a></li>
+            <li><a href="/admin/public/cartitem/"><span class="fa fa-edit"></span>&nbsp;Cart Item</a></li>
+            <li><a href="/admin/public/payment/"><span class="fa fa-edit"></span>&nbsp;Payment</a></li>
+            <li><a href="/admin/public/invoiceitem/"><span class="fa fa-edit"></span>&nbsp;Invoice items</a></li>
+            <li><a href="/admin/public/invoice/"><span class="fa fa-edit"></span>&nbsp;Invoice</a></li>
+            <li><a href="/admin/public/orderinfo/"><span class="fa fa-edit"></span>&nbsp;Order info</a></li>
+        </ul>
+    </div>
+{% endblock %}
+

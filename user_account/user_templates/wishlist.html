@@ -1,0 +1,21 @@
+{% extends 'sample.html' %}
+{% block title %}Wishlist{% endblock %}
+
+
+
+{% block user_main_content %}
+
+<div class="wishlist">
+    <div class="dashboard_header">
+        <h1>Wishlist</h1>
+    </div>
+    <div class="wishlist_body">
+       
+    </div>
+</div>
+
+<script>
+    var ele = document.querySelector("#wishlist");
+    ele.classList.add('bar_active');
+</script>
+{% endblock user_main_content%}

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="icon" href="/media/favicon3.jpg" />
+        <meta charset="utf-8">
+        <title>
+            {% block title %}{% endblock %}
+        </title>
+
+        {% load static %}
+        
+        <!--fontawesome 5-->
+         <!--for font icon-->
+        <link rel="stylesheet" href="{% static 'css/fontawesome_5/css/all.css' %}" type="text/css" />
+        <!--<script src="{% static 'css/fontawesome_5/js/all.js' %}"></script> for svg icon-->
+        
+        <!--fontawesome 4-->
+        <link rel="stylesheet" href="{% static 'css/font-awesome.css' %}" type="text/css" />
+        
+        <!--ioni icon-->
+        <link rel="stylesheet" href="{% static 'css/ionicons.css' %}" type="text/css" />
+        
+        <link rel="stylesheet" href="{% static 'css/common.css' %}" type="text/css" />
+    </head>
+    <body>
+        <header class="header">
+            <nav class="nav">
+                <div class="logo-content">
+                    <a href="/"><img src="/media/favicon1.jpg" /></a>
+                </div>  
+
+                <div class="search-content">
+                    <form id="search_form" action="" method="get">
+                        <input type="search" autocomplete="off" name="search_box" id="search_box" placeholder="Search..."/>
+                        <input type="submit" value=""/>
+                    </form>
+                </div>
+                <div class="login_content">
+<!--                    {{ request.session.username}}-->
+<!--                    get all session key-->
+<!--                    {{ request.session.keys}}-->
+
+                    {% if request.session.username %}
+        <!--                <a onclick="userMenu(this)" href="javascript:void(0)" >-->
+                            <a href="{% url 'dashboard' %}" title="Account" >
+                                <span class="user_icon"></span>
+                                <span class="login">{{request.session.username}}</span>
+                            </a>
+                    {% else %}
+                            <a onclick="document.getElementById('login_model').style.display = 'block';" href="javascript:void(0)">
+                                <span class="user_icon"></span>
+                                <span class="login">Login/SignUp</span>
+                            </a>
+                    {% endif %}
+                    <div id="user_profile_menu" class="profile_menu">
+                        <ul>
+                            <li><a href="">Dashboard</a></li>
+                            <li><a href="">Profile</a></li>
+                            <li><a href="{%url 'logout'%}">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!--cart item-->
+                <div class="cart_content">
+                    <a href="{% url 'cart' %}">
+                        <span class="cart_icon"></span>
+                        <div id="cart_item" class="cart_item">
+                        {% load define_action %}
+
+                        {%get_cart_list request  as cart_list %}
+                            {% if cart_list.totalItem and cart_list.totalCost %}
+                                <div class="item_text">{{cart_list.totalItem}} item(s)</div>
+                                <div class="cart_item_price">TK{{cart_list.totalCost}}</div>
+                            {% else %}
+                                <div class="item_text">No item</div>
+                                <div class="cart_item_price">TK0.00</div>
+                            {% endif %}
+                        </div>
+                    </a>
+                </div>
+
+            </nav>
+
+            <div class="sub_nav">
+                <select form="search_form" name="category" class="category">
+                    <option>Categories</option>
+                    <option>Vagetable</option>
+                    <option>Fruits</option>
+                </select>
+                <span class="contact"><a href="{% url 'track_order' %}">Order Track</a></span>
+                <span class="contact"><a href="{% url 'pricing' %}"> Pricing</a></span>
+                <span class="contact"><a href="{% url 'contact' %}">Contact</a></span>
+                <span class="contact"><a href="{% url 'about' %}">About</a></span>
+                <span class="contact"><a href="{% url 'tutorial' %}">Tutorial</a></span>
+            </div>
+
+
+
+        </header>
+
+
+
+        <section>
+            {% block pagecontent %}
+
+            {% endblock %}
+        </section>
+
+        <footer class="footer">
+            <div>
+                <div class="subscribe_form">
+                    <span>
+                        Trade Alert - Delivering the latest product trends and industry news straight to your inbox. 
+                    </span>
+                    <form action="" method="get">
+                        <input name="subscribe_email" type="email" placeholder="Your email address"/>
+                        <input type="submit" value="Subscribe" />  
+                    </form>
+                    <span>
+                        We’ll never share your email address with a third-party.
+                    </span>
+                </div>
+            </div>
+            <div class="footer_content">
+                <div class="footer_item">
+                    <h1>Customer Services</h1>
+                    <ul>
+                        <li><a href="">Frequently Asked Questions</a></li>
+                        <li><a href="">Terms and Conditions</a></li>
+                        <li><a href="">Privacy Policy</a></li>
+                        <li><a href="{% url 'contact' %}">Message</a></li>
+                    </ul>
+                </div>
+                <div class="footer_item">
+                    <h1>Food Shop</h1>
+                    <ul>
+                        <li><a href="">About FoodShop</a></li>
+                        <li><a href="">Shipping and Delivery</a></li>
+                        <li><a href="">Customer Care</a></li>
+                        <li><a href="">Careers</a></li>
+                    </ul>
+                </div>
+
+
+                <div class="footer_item">
+                    <h1>Contact us</h1>
+                    <ul>
+                        <li><span>House: 44, Road: 16 (27 Old),</span><br/><span> Dhanmondi Dhaka - 1209, Bangladesh</span></li>
+                        <li><span class="fa fa-phone"></span> 01967866611</li>
+                        <li><span class="fa fa-envelope"></span> care@foodshop.com </li>
+                    </ul>
+                </div>
+
+                <div class="footer_item">
+                    <h1>Follow us</h1>
+                    <ul>
+                        <li><a href=""><span class="fa fa-facebook-square"></span> Facebook</a></li>
+                        <li><a href=""><span class="fa fa-twitter-square"></span> Twiter</a></li>
+                        <li><a href=""><span class="fa fa-linkedin-square"></span> LinkedIn</a></li>
+                        <li><a href=""><span class="fa fa-instagram"></span> Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+            <br/>
+            <div class="footer_bottom">
+                © 2017-2020 foodshop.com. All rights reserved.
+            </div>
+        </footer>
+
+        <div id="login_model" class="model">
+            <div class="model_content">
+                <span style=" font-size: 130%;" onclick="document.getElementById('login_model').style.display = 'none';" class="close_model fa fa-close"></span>
+                <form id="signin_form" action="{% url 'signin' %}" method="post">
+                        {% csrf_token %}
+                    <div class="login_title">
+                        <h1>Login</h1>
+                    </div>
+                        <div id="invalid_user" style="color: red;display: none;">Invalid Email or Password.</div>
+                    <label><span class="fa fa-envelope"></span> Email/Username</label>
+                    <div class="input_group">
+                        <span class="icon ion-ios-mail"></span>
+                        <input  type="email" name="email" placeholder="Enter email/username"/>
+                        <span style="color: #20aa6b; display: none;" class="input_check fa fa-check-circle"></span>
+                        <span style="color: #ff4d4f;display: none;" class="input_check fa fa-times-circle"></span>
+                    </div>
+                    <div id="login_email_err" style="color: red;display: none;margin-top: .5rem;">Email is Empty</div>
+                    <label><span class="fa fa-lock"></span> Password</label>
+                    <div class="input_group">
+                        <span class="icon ion-ios-key"></span>
+                        <input type="password" name="password" placeholder="Password..."/>
+                        <span style="color: #20aa6b; display: none;" class="input_check fa fa-check-circle"></span>
+                        <span style="color: #ff4d4f;display: none;" class="input_check fa fa-times-circle"></span>
+                    </div>
+                    <div id="login_pass_err" style="color: red;display: none;margin-top: .5rem;">Password is Empty</div>
+                    <br/>
+                    <div class="input_group">
+                        <input style="width: inherit;"  type="checkbox" name="remember" id="remember" /> <label for="remember" style="width: inherit;color: gray;user-select: none;vertical-align: middle;margin: 0;padding: 0;">Remember me</label>
+                    </div>
+                    <br/>
+                    <input class="input_submit" type="submit" value="Login" />
+
+                    <br/>
+                    <p>Don't have an account?</p>
+                    <input onclick="document.getElementById('signin_form').style.display = 'none';document.getElementById('signup_form').style.display = 'block';" type="button" value="Register" />
+                </form>
+                <form style="display: none;" id="signup_form" action="{% url 'signup' %}" method="get">
+                    <div class="login_title">
+                        <h1>Create your Account</h1>
+                    </div>
+                    <label><span class="fa fa-user"></span> Full Name</label>
+                    <div class="input_group">
+                        <span class="icon ion-ios-person"></span>
+                        <input type="text" name="fullname" placeholder="Full Name..."/>
+                        <span style="color: #20aa6b; display: none;" class="input_check fa fa-check-circle"></span>
+                        <span style="color: #ff4d4f;display: none;" class="input_check fa fa-times-circle"></span>
+                    </div>
+                    <div id="fulname_err" style="color: red;display: none;margin-top: .5rem;">Fullname is Empty</div>
+                    <label><span class="fa fa-envelope"></span> Email Address</label>
+                    <div class="input_group">
+                        <span class="icon ion-ios-mail"></span>
+                        <input type="email" name="email" placeholder="Enter email/phone"/>
+                        <span style="color: #20aa6b; display: none;" class="input_check fa fa-check-circle"></span>
+                        <span style="color: #ff4d4f;display: none;" class="input_check fa fa-times-circle"></span>
+                    </div>
+                    <div id="email_err" style="color: red;display: none;margin-top: .5rem;">Email is Empty</div>
+                    <label><span class="fa fa-lock"></span> Password</label>
+                    <div class="input_group">
+                        <span class="icon ion-ios-key"></span>
+                        <input type="password" name="password" placeholder="Password..."/>
+                        <span style="color: #20aa6b; display: none;" class="input_check fa fa-check-circle"></span>
+                        <span style="color: #ff4d4f;display: none;" class="input_check fa fa-times-circle"></span>
+                    </div>
+                    <div id="signup_pass_err" style="color: red;display: none;margin-top: .5rem;">Password is Empty</div>
+                    <label><span class="fa fa-lock"></span> Re-type Password</label>
+                    <div class="input_group">
+                        <span class="icon ion-ios-key"></span>
+                        <input type="password" name="retype_password" placeholder="Retype password..."/>
+                        <span style="color: #20aa6b; display: none;" class="input_check fa fa-check-circle"></span>
+                        <span style="color: #ff4d4f;display: none;" class="input_check fa fa-times-circle"></span>
+                    </div>
+                    <div id="signup_re_pass_err" style="color: red;display: none;margin-top: .5rem;">Retype Password is Empty</div>
+                    <br/>
+                    <div class="input_group">
+                        <input style="width: inherit;"  type="checkbox" name="remember" id="remember" /> <label for="remember" style="width: inherit;color: gray;user-select: none;vertical-align: middle;margin: 0;padding: 0;">Remember me</label>
+                    </div>
+                    <br/>
+                    <input class="input_submit" type="submit" value="SignUp" />
+
+                    <br/>
+                    <p>Have an account?</p>
+                    <input onclick="document.getElementById('signin_form').style.display = 'block';document.getElementById('signup_form').style.display = 'none';" type="button" value="SignIn" />
+                </form>
+            </div>
+        </div>
+
+        
+        <script src="{% static 'js/angularjs/1.6.9/angular.min.js' %}"></script>
+        <script src="{% static 'js/jquery/3.3.1/jquery-3.4.1.js' %}"></script>
+        <script src="{% static 'js/main.js' %}"></script>
+        
+        <script>
+
+        </script>
+
+    </body>
+</html>

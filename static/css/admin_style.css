@@ -1,0 +1,33 @@
+
+.btn_container {
+
+}
+.btn_container ul {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+.btn_container ul li {
+    list-style-style: none;
+    display: block;
+    flex-basis: 14.28%;
+    flex-basis: 16.66%;
+}
+.btn_container ul li a {
+    border-radius: 5px;
+    border: 1px solid #d3d3d3;
+    display: block;
+    margin: .5rem;
+    height: 80px;
+    background-color: #294;
+    color: #fff;
+    font-size: 110%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+ }
+
+
+

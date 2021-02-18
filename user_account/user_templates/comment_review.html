@@ -1,0 +1,21 @@
+{% extends 'sample.html' %}
+{% block title %}Comment and Review{% endblock %}
+
+
+
+{% block user_main_content %}
+
+<div class="comment_review">
+    <div class="dashboard_header">
+        <h1>Comment and Review</h1>
+    </div>
+    <div class="comment_review_body">
+       
+    </div>
+</div>
+
+<script>
+    var ele = document.querySelector("#comment_review");
+    ele.classList.add('bar_active');
+</script>
+{% endblock user_main_content%}

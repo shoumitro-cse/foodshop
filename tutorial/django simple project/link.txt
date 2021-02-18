@@ -1,0 +1,18 @@
+#tutorial link
+#https://docs.djangoproject.com/en/3.1/
+** Basic python
+** Model
+** ModelAdmin
+** Form
+** FormAdmin
+** Template
+** Custom Template Tag
+** View
+** Admin Site
+
+
+#This website is better for django
+#website link
+https://simpleisbetterthancomplex.com/archive/ 
+#github link 
+https://github.com/sibtc 

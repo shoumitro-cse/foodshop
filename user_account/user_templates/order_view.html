@@ -1,0 +1,129 @@
+{% extends 'sample.html' %}
+{% block title %}Order view{% endblock %}
+
+
+
+{% block user_main_content %}
+
+<div class="order">
+    <div class="dashboard_header">
+        <h1>Order ID: #111111</h1>
+    </div>
+</div>   
+<br/>
+<div class="hr_line"></div>
+<div class="order_view_body">
+    <div class="order_view_content">
+        <div class="order_view_item">
+            <div class="view_item">
+                <strong> Submitted at : </strong> 
+                <span> Sep 7, 2020</span>
+            </div>
+            <div class="view_item">
+                <strong>  Shipping Slot : </strong> 
+                <span>09:00:00 - 11:00:00, Sep 8, 2020 </span>
+            </div>
+            <div class="view_item">
+                <strong> Shipping Method  : </strong> 
+                <span> Home Delivery</span>
+            </div>
+            <div class="view_item">
+                <strong> Vat  : </strong> 
+                <span>  Tk0.00</span>
+            </div>
+            <div class="view_item">
+                <strong> Note  : </strong> 
+                <span>  Some message</span>
+            </div>
+        </div>
+        <div class="order_view_item">
+            <div class="view_item">
+                <strong> Online Payment  : </strong> 
+                <span>  Online Payment</span>
+            </div>
+            <div class="view_item">
+                <strong> Products Price   : </strong> 
+                <span> Tk135.00</span>
+            </div>
+            <div class="view_item">
+                <strong>Discount  : </strong> 
+                <span>  Tk 0.00</span>
+            </div>
+            <div class="view_item">
+                <strong> Delivery Charge : </strong> 
+                <span>  Tk 0.00</span>
+            </div>
+        </div>
+        <div class="order_view_item">
+            <div><h3> Current Status </h3></div>
+            <br/>
+            <div><span> Canceled</span></div>
+        </div>
+        <div class="order_view_item">
+            <div><h3> Total </h3></div>
+            <br/>
+            <div><span> Tk135.00</span></div>
+        </div>
+
+    </div>
+</div>
+<div class="hr_line"></div>
+<div class="view_track">
+    <div class="view_tab">
+        <ul>
+            <li class="tab_active" tab-id="product_panel">Products</li>
+            <li tab-id="addr_panel">Addresses</li>
+            <li tab-id="tracl_panel">Tracking</li>
+        </ul>
+    </div>
+    <div class="view_panel">
+
+        <div id="product_panel" class="product_panel d-none show">
+            <table class="table">
+                <tr>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Brand</th>
+                    <th>Quantity</th>
+                    <th>Unit Price</th>
+                    <th>Price</th>
+                </tr>
+                <tr>
+                    <td><img class="small_img" src="/media/tomato.jpg" alt="" /></td>
+                    <td><a class="item_link" href="/public/product/1000"> Deshi Tomato - (Net Weight ± 50 gm</a> </td>
+                    <td>brand</td>
+                    <td>1</td>
+                    <td>Tk135.00</td>
+                    <td>Tk135.00</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="d-none" id="addr_panel">
+            <div id="addr_panel" class="addr_panel">
+                <div class="billing_addr">
+                    <div><h1 class="addr_item_heading">Billing Address</h1></div>
+                    <div>
+                        <div class="addr_item"><span>Contact to :</span><span>Shoumitro Ray</span></div>
+                        <div class="addr_item"><span>Telephone :</span><span>01991385090</span></div>
+                        <div class="addr_item"><span>Address :</span><span>jessore, Khulna.</span></div>
+                    </div>
+                </div>
+                <div class="shopping_addr">
+                    <div><h1 class="addr_item_heading">Shipping Address</h1></div>
+                    <div>
+                        <div class="addr_item"><span>Contact to :</span><span>Shoumitro Ray</span></div>
+                        <div class="addr_item"><span>Telephone :</span><span>01991385090</span></div>
+                        <div class="addr_item"><span>Address :</span><span>jessore, Khulna.</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div  id="tracl_panel" class="tracl_panel d-none">
+            This Page is Under Development.
+        </div>
+    </div>
+</div>
+
+
+{% endblock user_main_content%}

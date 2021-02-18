@@ -1,0 +1,33 @@
+<!-- Add this for inheritance -->
+{% extends 'base.html' %}
+
+
+{% block pagecontent %}
+<div class="main-container">
+
+    <div class="account">
+        <div class="account_sidebar">
+            <div class="account_sidebar_content">
+                <ul>
+                    <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                    <li><a href="{% url 'profile' %}">My Profile</a></li>
+                    <li><a href="{% url 'order' %}">Orders</a></li>
+                    <li><a id="wishlist" href="{% url 'wishlist' %}">WishList</a></li>
+                    <li><a id="comment_review" href="{% url 'comment_review' %}">Comment & Review</a></li>
+                    <li><a id="addresses" href="{% url 'addresses' %}">Addresses</a></li>
+                    <li><a id="help_support" href="{% url 'help_support' %}">Help & Support</a></li>
+                    <li><a id="settings" href="{% url 'settings' %}">Settings</a></li>
+                    <li><a id="change_password" href="{% url 'change_password' %}">Change Password</a></li>
+                    <li><a href="{%url 'logout'%}">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="account_main_content">
+            {% block user_main_content %}
+
+            {% endblock %}
+        </div>
+    </div>
+
+</div>
+{% endblock pagecontent%}

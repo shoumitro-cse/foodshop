@@ -1,0 +1,109 @@
+<!-- Add this for inheritance -->
+{% extends 'base.html' %}
+
+{% block title %}Product Details{% endblock %}
+
+{% block pagecontent %}
+<div class="main-container">
+    {% if prodict_dict %}
+    <div class="product_details_info">
+
+<!--        for product card-->
+        <div class="product_content">
+            <div class="product">
+                <div class="product__photo">
+                    <div class="photo-container">
+                        <div class="photo-main">
+                            <img title="{{prodict_dict.name}}" src="/media/{{prodict_dict.image1}}" alt="{{prodict_dict.name}}">
+                        </div>
+                        <div class="photo-album">
+                            <ul>
+                                <li><img src="/media/{{prodict_dict.image1}}" alt="green tomato"></li>
+                                <li><img src="/media/{{prodict_dict.image2}}" alt="half tomato"></li>
+                                <li><img src="/media/{{prodict_dict.image3}}" alt="green tomato"></li>
+                                <li><img src="/media/{{prodict_dict.image4}}" alt="tomato top"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="product__info">
+                    <div class="title">
+                        <h1>{{prodict_dict.name}}</h1>
+                        <span>CODE: {{prodict_dict.id}}</span>
+                    </div>
+                    <div class="price">
+                        Tk <span>{{prodict_dict.price}}</span>
+                    </div>
+                    <div class="variant">
+                        <h3 class="desc_title">SELECT A COLOR</h3>
+                        <ul>
+                            <li><img src="/media/{{prodict_dict.image1}}" alt="green tomato"></li>
+                            <li><img src="/media/{{prodict_dict.image2}}" alt="yellow tomato"></li>
+                            <li><img src="/media/{{prodict_dict.image3}}" alt="orange tomato"></li>
+                            <li><img src="/media/{{prodict_dict.image4}}" alt="red tomato"></li>
+                        </ul>
+                    </div>
+                    <div class="description">
+                        <h3 class="desc_title">Product Details</h3>
+                        <ul>
+                            <li>{{prodict_dict.desc1}}</li>
+                            <li>{{prodict_dict.desc2}}</li>
+                            <li>{{prodict_dict.desc3}}</li>
+                            <li>{{prodict_dict.desc4}}</li>
+                        </ul>
+                    </div>
+                    <button type="button" product-id="{{prodict_dict.id}}" class="add_cart_item buy--btn">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+
+<!--        for service-->
+        <div class="service">
+            <div class="service_content">
+
+                <div class="p_service">
+                    <div class="sevice_img">
+                        <img src="/media/icon/car.svg" alt="" />
+                    </div>
+                    <div>
+                        <div class="s_body">
+                            <div class="sevice_text">Home Delivery</div>
+                            <div class="s_price">0.00Tk</div>
+                        </div>
+                        <div class="s_date">24 Hours</div>
+                    </div>
+                </div>
+
+                <div class="p_service">
+                    <div class="sevice_img">
+                        <img src="/media/icon/cash.svg" alt="" />
+                    </div>
+                    <div>
+                        <div class="s_body">
+                            <div class="sevice_text">Cash on Delivery</div>
+                            <div class="s_price"></div>
+                        </div>
+                        <div class="s_date">Available</div>
+                    </div>
+                </div>
+
+                <div class="p_service mg_0">
+                    <div class="sevice_img">
+                        <img src="/media/icon/sold.svg" alt="" />
+                    </div>
+                    <div>
+                        <div class="s_body">
+                            <div class="sevice_text">Sold By</div>
+                            <div class="s_price"></div>
+                        </div>
+                        <div class="s_date">FoodShop</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    {% endif %}
+</div>
+{% endblock pagecontent%}
